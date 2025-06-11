@@ -1,8 +1,10 @@
-import { Menu, Volume2, Star, Pencil, Mic, X} from 'lucide-react';
+import { Menu, Volume2, Star, Pencil, Mic, X, Type} from 'lucide-react';
 import { useState } from 'react';
 import './App.css'
 
 function App() {
+  const [showInputBar, setShowInputBar] = useState(false);
+
   return (
     <div className="min-h-screen w-full flex flex-col bg-gradient-to-b from-[#3e2723] to-[#1b1b1b] text-white px-1 py-2"> 
       {/* nav button */}
@@ -34,7 +36,18 @@ function App() {
         </div>
       </main>
 
-      {/* text input, need to change to only appear after text button tapped */}
+      {/* T button viewable by default, after click, text bar opens and T button disappears */}
+      {!showInputBar && (
+        <button
+          className="p-2 rounded-full bg-[#F5E8C7]/90 self-end m-4 text-[#322B26]"
+          onClick={() => setShowInputBar(true)}
+        >
+          <Type size={22} strokeWidth={2}/>
+        </button>
+        )}
+
+      {/* on click T button, appears, on click X button, disappears and T reappears */}
+      {showInputBar && (
       <footer className="px-4 pb-5">
         <div className="flex items-center gap-3">
           <input
@@ -42,7 +55,10 @@ function App() {
             placeholder="What does th"
             className="flex-1 p-2 bg-[#322B26] border border-[#F5E8C7]/90 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#F5E8C7]/90"
           />
-          <button className="p-2 ml-[-44px] relative z-10 rounded-full">
+          <button 
+            className="p-2 ml-[-44px] relative z-10 rounded-full"
+            onClick={() => setShowInputBar(false)}
+          >
             <X size={16} strokeWidth={2} />
           </button>
           <button className="p-2 bg-[#F5E8C7]/90 rounded-full">
@@ -50,6 +66,8 @@ function App() {
           </button>
         </div>
       </footer>
+      )}
+
     </div>
   );
 }
