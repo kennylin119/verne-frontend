@@ -1,12 +1,12 @@
-import { Menu } from 'lucide-react';
+import { Menu, Volume2, Star } from 'lucide-react';
 import './App.css'
 
 function App() {
   return (
-    <div className="min-h-screen w-full flex flex-col bg-gradient-to-b from-[#3e2723] to-[#1b1b1b] text-white px-6 py-8"> 
-    {/* nav button */}
-      <div className="flex justify-end mb-8">
-        <button className="w-10 h-10 rounded-full flex items-center justify-center">
+    <div className="min-h-screen w-full flex flex-col bg-gradient-to-b from-[#3e2723] to-[#1b1b1b] text-white px-1 py-2"> 
+      {/* nav button */}
+      <div className="p-4">
+        <button className="p-2 rounded-full bg-[#F5E8C7]/90">
           <Menu size={20}></Menu>
         </button>
       </div>
@@ -16,11 +16,21 @@ function App() {
           How do you play Verne?
         </h2>
         {/* answer */}
-        <p className="leading-relaxed max-w-prose mb-6">
+        <p className="leading-relaxed mb-6">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et
           velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora
           torquent per conubia nostra, per inceptos himenaeos.
         </p>
+        {/* mute + save icons */}
+        <div className="flex items-center gap-2 mb-4">
+          <button className="p-1 border border-current rounded-full">
+            <Volume2 size={18} strokeWidth={2} />
+          </button>
+          <button>
+            <Star size={22} strokeWidth={2} />
+          </button>
+        </div>
+        
       </main>
     </div>
   );
