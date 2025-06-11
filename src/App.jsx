@@ -3,8 +3,8 @@ import './App.css'
 
 function App() {
   return (
-    <div className="min-h-screen w-full flex flex-col">
-      {/* nav button */}
+    <div className="min-h-screen w-full flex flex-col bg-gradient-to-b from-[#3e2723] to-[#1b1b1b] text-white px-6 py-8"> 
+    {/* nav button */}
       <div className="flex justify-end mb-8">
         <button className="w-10 h-10 rounded-full flex items-center justify-center">
           <Menu size={20}></Menu>
@@ -26,4 +26,5 @@ function App() {
   );
 }
 
-export default App
+
+export default App;
