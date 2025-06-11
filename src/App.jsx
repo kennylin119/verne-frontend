@@ -1,4 +1,4 @@
-import { Menu, Volume2, Star } from 'lucide-react';
+import { Menu, Volume2, Star, Pencil} from 'lucide-react';
 import './App.css'
 
 function App() {
@@ -7,13 +7,14 @@ function App() {
       {/* nav button */}
       <div className="p-4">
         <button className="p-2 rounded-full bg-[#F5E8C7]/90">
-          <Menu size={20}></Menu>
+          <Menu size={20} strokeWidth={2} className="text-[#322B26]"/>
         </button>
       </div>
       <main className="flex-1 overflow-y-auto px-6">
         {/* question */}
-        <h2 className="flex items-center gap-2 mb-4">
-          How do you play Verne?
+        <h2 className="flex items-center gap-2 mb-4 w-full justify-end">
+          <Pencil size={22} strokeWidth={2} className="p-1 border border-current rounded-full"/>
+          "How do you play Verne?"
         </h2>
         {/* answer */}
         <p className="leading-relaxed mb-6">
@@ -30,7 +31,6 @@ function App() {
             <Star size={22} strokeWidth={2} />
           </button>
         </div>
-        
       </main>
     </div>
   );
