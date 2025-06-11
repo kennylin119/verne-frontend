@@ -1,4 +1,5 @@
-import { Menu, Volume2, Star, Pencil} from 'lucide-react';
+import { Menu, Volume2, Star, Pencil, Mic, X} from 'lucide-react';
+import { useState } from 'react';
 import './App.css'
 
 function App() {
@@ -32,6 +33,23 @@ function App() {
           </button>
         </div>
       </main>
+
+      {/* text input, need to change to only appear after text button tapped */}
+      <footer className="px-4 pb-5">
+        <div className="flex items-center gap-3">
+          <input
+            type="text"
+            placeholder="What does th"
+            className="flex-1 p-2 bg-[#322B26] border border-[#F5E8C7]/90 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#F5E8C7]/90"
+          />
+          <button className="p-2 ml-[-44px] relative z-10 rounded-full">
+            <X size={16} strokeWidth={2} />
+          </button>
+          <button className="p-2 bg-[#F5E8C7]/90 rounded-full">
+            <Mic size={20} strokeWidth={2} className="text-[#322B26]" />
+          </button>
+        </div>
+      </footer>
     </div>
   );
 }
