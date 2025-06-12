@@ -1,12 +1,23 @@
-# React + Vite
+# Verne Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for Verne's voice/chat LLM. 
 
-Currently, two official plugins are available:
+## How to Run Locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the repository  
+   `git clone https://github.com/your-username/verne-frontend.git`
+2. Navigate to the project directory  
+   `cd verne-frontend`
+3. Install dependencies  
+   `npm install`
+4. Start the development server  
+   `npm run dev`
+5. Open your browser to  
+   [http://localhost:5173](http://localhost:5173)
 
-## Expanding the ESLint configuration
+## Technologies Used 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Tailwind CSS 
+    - Tailwind CSS is a utlity-first CSS framework that provides pre-built classes you can use directly in your HTML or JSX. This saves you from needing to write custom CSS for each component, which lets you iterate faster, replicate designs easier and maintain a consistent styling. It's also desgined to be mobile-first by default but also scalable for larger screen sizes. 
+2. Vite 
+    - Vite is the build tool used to develop and serve this project. It's optimized for speed, simplicity and performs better than Create React App. It also works seamlessly with Tailwind. 
