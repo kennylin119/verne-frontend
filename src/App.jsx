@@ -6,7 +6,7 @@ function App() {
   const [showInputBar, setShowInputBar] = useState(false);
 
   return (
-    <div className="min-h-screen w-full flex flex-col bg-gradient-to-b from-[#3e2723] to-[#1b1b1b] text-white px-1 py-2"> 
+    <div className="h-screen w-full flex flex-col bg-gradient-to-b from-[#694A4A] to-[#221C1C] text-[#FFF4D7] text-lg font-Caudex px-1 py-2"> 
       {/* nav button */}
       <div className="p-4">
         <button className="p-2 rounded-full bg-[#F5E8C7]/90">
@@ -15,7 +15,7 @@ function App() {
       </div>
       <main className="flex-1 overflow-y-auto px-6">
         {/* question */}
-        <h2 className="flex items-center gap-2 mb-4 w-full justify-end">
+        <h2 className="flex items-center gap-2 mb-10 w-full justify-end text-[#FFFFFF]">
           <Pencil size={22} strokeWidth={2} className="p-1 border border-current rounded-full"/>
           "How do you play Verne?"
         </h2>
@@ -39,7 +39,7 @@ function App() {
       {/* T button viewable by default, after click, text bar opens and T button disappears */}
       {!showInputBar && (
         <button
-          className="p-2 rounded-full bg-[#F5E8C7]/90 self-end m-4 text-[#322B26]"
+          className="p-2 rounded-full bg-[#F5E8C7]/90 self-end mr-4 mb-10 text-[#322B26]"
           onClick={() => setShowInputBar(true)}
         >
           <Type size={22} strokeWidth={2}/>
@@ -48,7 +48,7 @@ function App() {
 
       {/* on click T button, appears, on click X button, disappears and T reappears */}
       {showInputBar && (
-      <footer className="px-4 pb-5">
+      <footer className="px-4 mb-10">
         <div className="flex items-center gap-3">
           <input
             type="text"
