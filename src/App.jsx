@@ -6,6 +6,7 @@ function App() {
   const [showInputBar, setShowInputBar] = useState(false);
   const [inputText, setInputText] = useState('');
   const [exchanges, setExchanges] = useState([]);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   // when user presses enter, if inputText is not empty, add it to questions array and clear inputText
   const handleEnter = (e) => {
@@ -21,19 +22,25 @@ function App() {
 
   return (
     <div className="h-screen w-full flex flex-col bg-gradient-to-b from-[#694A4A] to-[#221C1C] text-[#FFF4D7] text-lg font-Caudex px-1 py-2">
-      {/* nav button */}
+
+      {/* menu button */}
       <div className="p-4">
-        <button className="p-2 rounded-full bg-[#F5E8C7]/90">
+        <button 
+          className="p-2 rounded-full bg-[#F5E8C7]/90"
+          onClick={() => setSidebarOpen(true)}
+        >
           <Menu size={20} strokeWidth={2} className="text-[#322B26]" />
         </button>
       </div>
 
       <main className="flex-1 overflow-y-auto px-6">
+
         {/* placeholder question */}
         <h2 className="flex items-center gap-2 mb-10 w-full justify-end text-[#FFFFFF]">
           <Pencil size={22} strokeWidth={2} className="p-1 border border-current rounded-full" />
           "How do you play Verne?"
         </h2>
+
         {/* placeholder answer */}
         <p className="leading-relaxed mb-6">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et
@@ -68,7 +75,7 @@ function App() {
               </p>
 
               {/* mute + save icons */}
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2">
                 <button className="p-1 border border-current rounded-full">
                   <Volume2 size={18} strokeWidth={2} />
                 </button>
@@ -114,6 +121,27 @@ function App() {
             </button>
           </div>
         </footer>
+      )}
+
+      {/* new sidebar component, opens on click of menu button */}
+      {isSidebarOpen && (
+        <div className="fixed top-0 left-0 w-64 h-full bg-[#322B26] text-[#F5E8C7] p-4 z-50">
+
+          {/* close button */}
+          <button 
+            className="absolute top-4 right-4"
+            onClick={() => setSidebarOpen(false)}
+          >
+            <X size={24} strokeWidth={2} />
+          </button>
+          <h2 className="text-xl font-bold mb-4">Menu</h2>
+          <ul>
+            <li className="mb-2"><a href="#">Home</a></li>
+            <li className="mb-2"><a href="#">Settings</a></li>
+            <li className="mb-2"><a href="#">Help</a></li>
+          </ul>
+          
+        </div>
       )}
 
     </div>
