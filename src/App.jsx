@@ -125,22 +125,30 @@ function App() {
 
       {/* new sidebar component, opens on click of menu button */}
       {isSidebarOpen && (
-        <div className="fixed top-0 left-0 w-64 h-full bg-[#322B26] text-[#F5E8C7] p-4 z-50">
+        <div className="fixed inset-0 z-50 bg-[#221C1C]/80 backdrop-blur-sm flex justify-start">
+          {/* sidebar takes up 85% of screen width on mobile, 300px on desktop */}
+            <div className="w-[85vw] sm:max-w-[300px] bg-gradient-to-b from-[#694A4A] to-[#221C1C] text-[#FFF4D7] h-full p-6 relative flex flex-col">
 
-          {/* close button */}
-          <button 
-            className="absolute top-4 right-4"
-            onClick={() => setSidebarOpen(false)}
-          >
-            <X size={24} strokeWidth={2} />
-          </button>
-          <h2 className="text-xl font-bold mb-4">Menu</h2>
-          <ul>
-            <li className="mb-2"><a href="#">Home</a></li>
-            <li className="mb-2"><a href="#">Settings</a></li>
-            <li className="mb-2"><a href="#">Help</a></li>
-          </ul>
+            {/* close button */}
+            <button 
+              className="absolute top-4 right-4"
+              onClick={() => setSidebarOpen(false)}
+            >
+              <X size={24} strokeWidth={2} />
+            </button>
           
+            <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
+              <Star size={22} strokeWidth={2} />
+              Saved Responses
+            </h2>
+
+            {/* Options */}
+            <div className="mt-auto text-l text-[#FFF4D7]/70 space-y-4">
+              <button className="block w-full text-left"> Settings </button>
+              <button className="block w-full text-left"> Clear Chat History </button>
+            </div>
+            
+          </div>
         </div>
       )}
 
