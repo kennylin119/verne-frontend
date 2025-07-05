@@ -21,15 +21,15 @@ function App() {
   }
 
   return (
-    <div className="h-screen w-full flex flex-col bg-gradient-to-b from-[#694A4A] to-[#221C1C] text-[#FFF4D7] text-lg font-Caudex px-1 py-2">
+    <div className="h-screen w-full flex flex-col bg-gradient-to-b from-[#694A4A] to-[#221C1C] text-[#FFF4D7] text-xl font-[Caudex] px-2 py-2">
 
       {/* menu button */}
-      <div className="p-4">
+      <div className="p-5">
         <button 
           className="p-2 rounded-full bg-[#F5E8C7]/90"
           onClick={() => setSidebarOpen(true)}
         >
-          <Menu size={20} strokeWidth={2} className="text-[#322B26]" />
+          <Menu size={30} strokeWidth={2} className="text-[#322B26]" />
         </button>
       </div>
 
@@ -125,25 +125,28 @@ function App() {
 
       {/* new sidebar component, opens on click of menu button */}
       {isSidebarOpen && (
-        <div className="fixed inset-0 z-50 bg-[#221C1C]/80 backdrop-blur-sm flex justify-start">
-          {/* sidebar takes up 85% of screen width on mobile, 300px on desktop */}
-            <div className="w-[85vw] sm:max-w-[300px] bg-gradient-to-b from-[#694A4A] to-[#221C1C] text-[#FFF4D7] h-full p-6 relative flex flex-col">
+        <div className="w-[80vw] max-w-[400px] fixed inset-0 z-50 flex backdrop-blur-md">
+          
+          {/* sidebar takes up 80% of screen width, max 300px */}
+            <div className="w-[80vw] max-w-[400px] bg-gradient-to-b from-[#281515] to-[#4D3333] opacity-75 h-full p-6 relative flex flex-col">
 
             {/* close button */}
-            <button 
-              className="absolute top-4 right-4"
-              onClick={() => setSidebarOpen(false)}
-            >
-              <X size={24} strokeWidth={2} />
-            </button>
+            <div className="p-1">
+              <button 
+                className="p-2 rounded-full bg-[#F5E8C7]/90 mb-8"
+                onClick={() => setSidebarOpen(false)}
+              >
+                <X size={30} strokeWidth={2} className="text-[#322B26]" />
+              </button>
+            </div>
           
-            <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-              <Star size={22} strokeWidth={2} />
+            <h2 className="text-xl font-bold mb-4 flex items-center p-1 gap-4">
+              <Star size={34} fill="#F5E8C7" />
               Saved Responses
             </h2>
 
             {/* Options */}
-            <div className="mt-auto text-l text-[#FFF4D7]/70 space-y-4">
+            <div className="mt-auto text-l text-[#FFF4D7]/70 space-y-4 mb-10">
               <button className="block w-full text-left"> Settings </button>
               <button className="block w-full text-left"> Clear Chat History </button>
             </div>
