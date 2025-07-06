@@ -38,7 +38,7 @@ function App() {
 
         {/* placeholder question */}
         <h2 className="flex items-center gap-2 mb-10 w-full justify-end text-[#FFFFFF]">
-          <Pencil size={22} strokeWidth={2} className="p-1 border border-current rounded-full" />
+          <Pencil size={25} strokeWidth={2} className="p-1 border border-current rounded-full" />
           "How do you play Verne?"
         </h2>
 
@@ -52,10 +52,10 @@ function App() {
         {/* mute + save icons */}
         <div className="flex items-center gap-2 mb-4">
           <button className="p-1 border border-current rounded-full">
-            <Volume2 size={18} strokeWidth={2} />
+            <Volume2 size={25} strokeWidth={2} />
           </button>
           <button>
-            <Star size={22} strokeWidth={2} />
+            <Star size={25} strokeWidth={2} />
           </button>
         </div>
 
@@ -66,7 +66,7 @@ function App() {
 
               <div className="flex justify-end text-[#FFFFFF] mb-6">
                 <div className="flex items-start gap-2 max-w-[80%]">
-                  <Pencil size={22} strokeWidth={2} className="p-1 border border-current rounded-full shrink-0 mt-1" />
+                  <Pencil size={25} strokeWidth={2} className="p-1 border border-current rounded-full shrink-0 mt-1" />
                   <h2 className="break-words"> {exchange.question} </h2>
                 </div>
               </div>
@@ -78,10 +78,10 @@ function App() {
               {/* mute + save icons */}
               <div className="flex items-center gap-2">
                 <button className="p-1 border border-current rounded-full">
-                  <Volume2 size={18} strokeWidth={2} />
+                  <Volume2 size={25} strokeWidth={2} />
                 </button>
                 <button>
-                  <Star size={22} strokeWidth={2} />
+                  <Star size={25} strokeWidth={2} />
                 </button>
               </div>
             </div>
@@ -95,7 +95,7 @@ function App() {
           className="p-2 rounded-full bg-[#F5E8C7]/90 self-end mr-4 mb-10 text-[#322B26]"
           onClick={() => setShowInputBar(true)}
         >
-          <Type size={22} strokeWidth={2} />
+          <Type size={30} strokeWidth={2} />
         </button>
       )}
 
@@ -112,13 +112,13 @@ function App() {
               className="flex-1 p-2 bg-[#322B26] border border-[#F5E8C7]/90 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[#F5E8C7]/90"
             />
             <button
-              className="p-2 ml-[-44px] relative z-10 rounded-full"
+              className="p-2 ml-[-50px] relative z-10 rounded-full"
               onClick={() => setShowInputBar(false)}
             >
-              <X size={16} strokeWidth={2} />
+              <X size={20} strokeWidth={2} />
             </button>
             <button className="p-2 bg-[#F5E8C7]/90 rounded-full">
-              <Mic size={20} strokeWidth={2} className="text-[#322B26]" />
+              <Mic size={25} strokeWidth={2} className="text-[#322B26]" />
             </button>
           </div>
         </footer>
@@ -133,7 +133,7 @@ function App() {
           <div className="w-[80vw] max-w-[400px] backdrop-blur-md">
             
             {/* sidebar takes up 80% of screen width, max 300px */}
-              <div className="w-[80vw] max-w-[400px] bg-gradient-to-b from-[#281515] to-[#4D3333] opacity-75 h-full p-6 relative flex flex-col">
+              <div className="bg-gradient-to-b from-[#281515] to-[#4D3333] opacity-75 h-full p-6 flex flex-col">
 
               {/* close button */}
               <div className="p-1">
