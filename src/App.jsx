@@ -26,7 +26,7 @@ function App() {
 
       {/* menu button */}
       <div className="p-5">
-        <button 
+        <button
           className="p-2 rounded-full bg-[#F5E8C7]/90"
           onClick={() => setSidebarOpen(true)}
         >
@@ -131,20 +131,20 @@ function App() {
         <div className="fixed inset-0 z-50 flex">
 
           <div className="w-[80vw] max-w-[400px] backdrop-blur-md">
-            
+
             {/* sidebar takes up 80% of screen width, max 300px */}
-              <div className="bg-gradient-to-b from-[#281515] to-[#4D3333] opacity-75 h-full p-6 flex flex-col">
+            <div className="bg-gradient-to-b from-[#281515] to-[#4D3333] opacity-75 h-full p-6 flex flex-col">
 
               {/* close button */}
               <div className="p-1">
-                <button 
+                <button
                   className="p-2 rounded-full bg-[#F5E8C7]/90 mb-8"
                   onClick={() => setSidebarOpen(false)}
                 >
                   <X size={30} strokeWidth={2} className="text-[#322B26]" />
                 </button>
               </div>
-            
+
               <h2 className="text-xl font-bold mb-4 flex items-center p-1 gap-4">
                 <Star size={34} fill="#F5E8C7" />
                 Saved Responses
@@ -155,7 +155,7 @@ function App() {
                 <button className="block w-full text-left"> Settings </button>
                 <button className="block w-full text-left"> Clear Chat History </button>
               </div>
-              
+
             </div>
           </div>
 
