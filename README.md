@@ -21,3 +21,23 @@ This is the frontend for Verne's voice/chat LLM.
     - Tailwind CSS is a utlity-first CSS framework that provides pre-built classes you can use directly in your HTML or JSX. This saves you from needing to write custom CSS for each component, which lets you iterate faster, replicate designs easier and maintain a consistent styling. It's also desgined to be mobile-first by default but also scalable for larger screen sizes. 
 2. Vite 
     - Vite is the build tool used to develop and serve this project. It's optimized for speed, simplicity and performs better than Create React App. It also works seamlessly with Tailwind. 
+
+## Update Log 
+
+### Week 0 
+
+Task Completed: 
+- Built question and answer text screen in line with UI/UX diagram
+- Built input text bar that appears and disappears when pressing the Text button and X button
+
+Extra Work: 
+- Added iconology for menu, edit, save response, mic, and play text audio
+- Added support for submitting questions in input text bar, and demo answer prompts in reply
+
+### Week 1 
+- Built sidebar with settings that appears when clicking menu icon and disappears when clicking the X icon
+- Added background blur and opacity behind sidebar in line with UI/UX 
+
+Extra Work:
+- Made sidebar responsive to different mobile and desktop screensizes
+- Sidebar also closes when clicking outside area
