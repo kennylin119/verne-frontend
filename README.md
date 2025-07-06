@@ -42,13 +42,13 @@ Extra Work:
 
 
 ### Week 1 
-- Built sidebar with settings that appears when clicking menu icon and disappears when clicking the X icon
+- Built sidebar that appears when clicking the "Menu" icon and disappears when clicking the "X" icon
 - Added background blur and opacity behind sidebar in line with UI/UX 
 
 Extra Work:
 - Made sidebar responsive to different mobile and desktop screensizes
-- Sidebar also closes when clicking outside area
-- Updates sizing of UI elements 
+- Sidebar also closes when clicking outside of window
+- Updated sizing of UI elements 
 
 <p float="left">
    <img src="https://github.com/kennylin119/verne-frontend/blob/main/Progress%20Pics/Week%201%20Homepage.png" width="250"> 
