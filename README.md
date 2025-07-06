@@ -34,8 +34,12 @@ Extra Work:
 - Added iconology for menu, edit, save response, mic, and play text audio
 - Added support for submitting questions in input text bar, and demo answer prompts in reply
 
-![Homepage](https://github.com/kennylin119/verne-frontend/blob/main/Progress%20Pics/Week%200%20Homepage-1.png "Homepage")
-![Homepage 3](https://github.com/kennylin119/verne-frontend/blob/main/Progress%20Pics/Week%200%20Responsive%20Input%20Q%26A.png "Homepage Q&A")
+<p float="left">
+   <img src="https://github.com/kennylin119/verne-frontend/blob/main/Progress%20Pics/Week%200%20Homepage-1.png" width="250">
+   <img src="https://github.com/kennylin119/verne-frontend/blob/main/Progress%20Pics/Week%200%20Homepage.png" width="250">
+   <img src="https://github.com/kennylin119/verne-frontend/blob/main/Progress%20Pics/Week%200%20Responsive%20Input%20Q%26A.png" width="250">
+</p>
+
 
 ### Week 1 
 - Built sidebar with settings that appears when clicking menu icon and disappears when clicking the X icon
@@ -46,5 +50,7 @@ Extra Work:
 - Sidebar also closes when clicking outside area
 - Updates sizing of UI elements 
 
-![Updated Homepage](https://github.com/kennylin119/verne-frontend/blob/main/Progress%20Pics/Week%201%20Homepage.png "Updated Homepage")
-![Sidebar](https://github.com/kennylin119/verne-frontend/blob/main/Progress%20Pics/Week%201%20Sidebar.png "Sidebar")
+<p float="left">
+   <img src="https://github.com/kennylin119/verne-frontend/blob/main/Progress%20Pics/Week%201%20Homepage.png" width="250"> 
+   <img src="https://github.com/kennylin119/verne-frontend/blob/main/Progress%20Pics/Week%201%20Sidebar.png" width="250">
+</p>
