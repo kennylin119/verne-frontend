@@ -8,6 +8,7 @@ function App() {
   const [exchanges, setExchanges] = useState([]);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
+
   // when user presses enter, if inputText is not empty, add it to questions array and clear inputText
   const handleEnter = (e) => {
     if (e.key === 'Enter' && inputText.trim() !== '') {
@@ -123,35 +124,47 @@ function App() {
         </footer>
       )}
 
-      {/* new sidebar component, opens on click of menu button */}
+      {/* sidebar component, opens on click of menu button */}
       {isSidebarOpen && (
-        <div className="w-[80vw] max-w-[400px] fixed inset-0 z-50 flex backdrop-blur-md">
-          
-          {/* sidebar takes up 80% of screen width, max 300px */}
-            <div className="w-[80vw] max-w-[400px] bg-gradient-to-b from-[#281515] to-[#4D3333] opacity-75 h-full p-6 relative flex flex-col">
 
-            {/* close button */}
-            <div className="p-1">
-              <button 
-                className="p-2 rounded-full bg-[#F5E8C7]/90 mb-8"
-                onClick={() => setSidebarOpen(false)}
-              >
-                <X size={30} strokeWidth={2} className="text-[#322B26]" />
-              </button>
-            </div>
-          
-            <h2 className="text-xl font-bold mb-4 flex items-center p-1 gap-4">
-              <Star size={34} fill="#F5E8C7" />
-              Saved Responses
-            </h2>
+        // needed to close sidebar when clicking outside of it 
+        <div className="fixed inset-0 z-50 flex">
 
-            {/* Options */}
-            <div className="mt-auto text-l text-[#FFF4D7]/70 space-y-4 mb-10">
-              <button className="block w-full text-left"> Settings </button>
-              <button className="block w-full text-left"> Clear Chat History </button>
-            </div>
+          <div className="w-[80vw] max-w-[400px] backdrop-blur-md">
             
+            {/* sidebar takes up 80% of screen width, max 300px */}
+              <div className="w-[80vw] max-w-[400px] bg-gradient-to-b from-[#281515] to-[#4D3333] opacity-75 h-full p-6 relative flex flex-col">
+
+              {/* close button */}
+              <div className="p-1">
+                <button 
+                  className="p-2 rounded-full bg-[#F5E8C7]/90 mb-8"
+                  onClick={() => setSidebarOpen(false)}
+                >
+                  <X size={30} strokeWidth={2} className="text-[#322B26]" />
+                </button>
+              </div>
+            
+              <h2 className="text-xl font-bold mb-4 flex items-center p-1 gap-4">
+                <Star size={34} fill="#F5E8C7" />
+                Saved Responses
+              </h2>
+
+              {/* Options */}
+              <div className="mt-auto text-l text-[#FFF4D7]/70 space-y-4 mb-10">
+                <button className="block w-full text-left"> Settings </button>
+                <button className="block w-full text-left"> Clear Chat History </button>
+              </div>
+              
+            </div>
           </div>
+
+          {/* close sidebar when clicking outside of it */}
+          <div
+            className="flex-1"
+            onClick={() => setSidebarOpen(false)}
+          />
+
         </div>
       )}
 
