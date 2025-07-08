@@ -34,30 +34,14 @@ function App() {
         </button>
       </div>
 
-      <main className="flex-1 overflow-y-auto px-6">
+      <main className="flex-1 flex flex-col overflow-y-auto px-6">
 
-        {/* placeholder question */}
-        <h2 className="flex items-center gap-2 mb-10 w-full justify-end text-[#FFFFFF]">
-          <Pencil size={25} strokeWidth={2} className="p-1 border border-current rounded-full" />
-          "How do you play Verne?"
-        </h2>
+        {exchanges.length === 0 && !showInputBar && (
+          <h2 className="flex flex-1 items-center justify-center text-center mt-20 text-2xl">
+            Hi, how are you today? 
+          </h2>
 
-        {/* placeholder answer */}
-        <p className="leading-relaxed mb-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et
-          velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora
-          torquent per conubia nostra, per inceptos himenaeos.
-        </p>
-
-        {/* mute + save icons */}
-        <div className="flex items-center gap-2 mb-4">
-          <button className="p-1 border border-current rounded-full">
-            <Volume2 size={25} strokeWidth={2} />
-          </button>
-          <button>
-            <Star size={25} strokeWidth={2} />
-          </button>
-        </div>
+        )}
 
         {/* user input question + answer exchange */}
         <div className="space-y-6 mb-6">
@@ -91,12 +75,29 @@ function App() {
 
       {/* T button viewable by default, after click, text bar opens and T button disappears */}
       {!showInputBar && (
-        <button
-          className="p-2 rounded-full bg-[#F5E8C7]/90 self-end mr-4 mb-10 text-[#322B26]"
-          onClick={() => setShowInputBar(true)}
-        >
-          <Type size={30} strokeWidth={2} />
-        </button>
+        <>
+          <button
+            className="p-2 rounded-full bg-[#F5E8C7]/90 self-end mr-4 mb-10 text-[#322B26]"
+            onClick={() => setShowInputBar(true)}
+          >
+            <Type size={30} strokeWidth={2} />
+          </button>
+
+          <div className="fixed bottom-12 left-1/2 transform -translate-x-1/2 z-10">
+            <button
+              className="p-3 rounded-full bg-[#F5E8C7]/90 text-[#322B26] shadow-lg"
+              onClick={() => {
+                const newQuestion = "How do you play Verne?";
+                const placeholderAnswer = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et"
+                                          + "velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora"
+                                          + "torquent per conubia nostra, per inceptos himenaeos.";
+                setExchanges((prev) => [...prev, { question: newQuestion, answer: placeholderAnswer }]);
+              }}
+            >
+              <Mic size={30} strokeWidth={2.5} />
+            </button>
+          </div>
+        </>
       )}
 
       {/* on click T button, appears, on click X button, disappears and T reappears */}
