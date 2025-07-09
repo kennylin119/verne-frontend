@@ -7,7 +7,7 @@ function App() {
   const [inputText, setInputText] = useState('');
   const [exchanges, setExchanges] = useState([]);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-
+  const [isListening, setIsListening] = useState(false);
 
   // when user presses enter, if inputText is not empty, add it to questions array and clear inputText
   const handleEnter = (e) => {
@@ -71,6 +71,22 @@ function App() {
             </div>
           ))}
         </div>
+
+        {isListening && (
+          <div className="flex justify-center gap-1 mb-6">
+            {[...Array(5)].map((_, i) => (
+              <div
+                key={i}
+                className="w-1 bg-[#F5E8C7] animate-bounce"
+                style={{
+                  animationDelay: `${i * 0.1}s`,
+                  animationDuration: '1s',
+                  height: `${(i % 2 === 0 ? 1.5 : 2) * 1.5}rem`,
+                }}
+              />
+            ))}
+          </div>
+        )}
       </main>
 
       {/* T button viewable by default, after click, text bar opens and T button disappears */}
@@ -87,12 +103,15 @@ function App() {
             <button
               className="p-3 rounded-full bg-[#F5E8C7]/90 text-[#322B26] shadow-lg"
               onClick={() => {
-                const newQuestion = "How do you play Verne?";
+                setIsListening(true);
+                setTimeout(() => {
+                  const newQuestion = "How do you play Verne?";
                 const placeholderAnswer = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et"
                                           + "velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora"
                                           + "torquent per conubia nostra, per inceptos himenaeos.";
-                setExchanges((prev) => [...prev, { question: newQuestion, answer: placeholderAnswer }]);
-              }}
+                  setExchanges((prev) => [...prev, { question: newQuestion, answer: placeholderAnswer }]);
+                  setIsListening(false);
+                }, 3000);              }}
             >
               <Mic size={30} strokeWidth={2.5} />
             </button>
