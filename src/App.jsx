@@ -72,21 +72,6 @@ function App() {
           ))}
         </div>
 
-        {isListening && (
-          <div className="flex justify-center gap-1 mb-6">
-            {[...Array(5)].map((_, i) => (
-              <div
-                key={i}
-                className="w-1 bg-[#F5E8C7] animate-bounce"
-                style={{
-                  animationDelay: `${i * 0.1}s`,
-                  animationDuration: '1s',
-                  height: `${(i % 2 === 0 ? 1.5 : 2) * 1.5}rem`,
-                }}
-              />
-            ))}
-          </div>
-        )}
       </main>
 
       {/* T button viewable by default, after click, text bar opens and T button disappears */}
@@ -99,23 +84,54 @@ function App() {
             <Type size={30} strokeWidth={2} />
           </button>
 
-          <div className="fixed bottom-12 left-1/2 transform -translate-x-1/2 z-10">
-            <button
-              className="p-3 rounded-full bg-[#F5E8C7]/90 text-[#322B26] shadow-lg"
-              onClick={() => {
-                setIsListening(true);
-                setTimeout(() => {
+            <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center w-screen">
+
+              {isListening ? (
+                <div className="w-[200px] flex justify-center gap-1 mb-10 h-10 items-end">
+                  {[...Array(13)].map((_, i, arr) => {
+                    const center = Math.floor(arr.length / 2);
+                    const distanceFromCenter = Math.abs(i - center);
+                    const maxHeight = 3.5; // in rem
+                    const minHeight = 1.2; // in rem
+                    const range = maxHeight - minHeight;
+                    const height = maxHeight - (distanceFromCenter / center) * range;
+
+                    return (
+                      <div
+                        key={i}
+                        className="w-3 bg-[#F5E8C7] rounded-sm animate-wavebar"
+                        style={{
+                          height: `${height}rem`,
+                          animationDelay: `-${(Math.random() * 0.9).toFixed(2)}s`,
+                          animationDuration: '0.9s',
+                          animationIterationCount: 'infinite',
+                          animationDirection: 'alternate',
+                          animationTimingFunction: 'ease-in-out',
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="w-[200px] h-1.5 bg-[#F5E8C7] rounded-full mb-10" />
+              )}
+
+              <button
+                className="p-3 rounded-full bg-[#F5E8C7]/90 text-[#322B26] shadow-lg"
+                onClick={() => {
+                  setIsListening(true);
+                  setTimeout(() => {
                   const newQuestion = "How do you play Verne?";
-                const placeholderAnswer = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et"
-                                          + "velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora"
-                                          + "torquent per conubia nostra, per inceptos himenaeos.";
-                  setExchanges((prev) => [...prev, { question: newQuestion, answer: placeholderAnswer }]);
-                  setIsListening(false);
-                }, 3000);              }}
-            >
-              <Mic size={30} strokeWidth={2.5} />
-            </button>
-          </div>
+                  const placeholderAnswer = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et"
+                                            + "velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora"
+                                            + "torquent per conubia nostra, per inceptos himenaeos.";
+                    setExchanges((prev) => [...prev, { question: newQuestion, answer: placeholderAnswer }]);
+                    setIsListening(false);
+                  }, 3000);              }}
+              >
+                <Mic size={30} strokeWidth={2.5} />
+              </button>
+            </div>
         </>
       )}
 
