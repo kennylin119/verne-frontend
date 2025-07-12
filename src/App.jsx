@@ -34,32 +34,23 @@ function App() {
         </button>
       </div>
 
-      <main className="flex-1 flex flex-col overflow-y-auto px-6">
-
+      <div className="flex-1 overflow-y-auto px-6" style={{ maxHeight: 'calc(100vh - 300px)' }}>
         {exchanges.length === 0 && !showInputBar && (
-          <h2 className="flex flex-1 items-center justify-center text-center text-2xl">
-            Hi, how are you today?
-          </h2>
-
+          <div className="flex h-full items-center justify-center">
+            <h2 className="text-center text-2xl">Hi, how are you today?</h2>
+          </div>
         )}
 
-        {/* user input question + answer exchange */}
-        <div className="space-y-6 mb-6">
+        <div className="space-y-6">
           {exchanges.map((exchange, index) => (
             <div key={index}>
-
               <div className="flex justify-end text-[#FFFFFF] mb-6">
                 <div className="flex items-start gap-2 max-w-[80%]">
                   <Pencil size={25} strokeWidth={2} className="p-1 border border-current rounded-full shrink-0 mt-1" />
-                  <h2 className="break-words"> {exchange.question} </h2>
+                  <h2 className="break-words">{exchange.question}</h2>
                 </div>
               </div>
-
-              <p className="leading-relaxed mb-6">
-                {exchange.answer}
-              </p>
-
-              {/* mute + save icons */}
+              <p className="leading-relaxed mb-6">{exchange.answer}</p>
               <div className="flex items-center gap-2">
                 <button className="p-1 border border-current rounded-full">
                   <Volume2 size={25} strokeWidth={2} />
@@ -71,8 +62,7 @@ function App() {
             </div>
           ))}
         </div>
-
-      </main>
+      </div>
 
       {/* T button viewable by default, after click, text bar opens and T button disappears */}
       {!showInputBar && (
@@ -146,7 +136,7 @@ function App() {
 
       {/* on click T button, appears, on click X button, disappears and T reappears */}
       {showInputBar && (
-        <footer className="px-4 mb-10">
+        <footer className="px-4 pb-6 pt-2 fixed bottom-5 w-full bg-transparent z-20">
           <div className="flex items-center gap-3">
             <input
               type="text"
@@ -162,7 +152,27 @@ function App() {
             >
               <X size={20} strokeWidth={2} />
             </button>
-            <button className="p-2 bg-[#F5E8C7]/90 rounded-full">
+
+            {/* mic button inside side bar */}
+            <button
+              className="p-2 bg-[#F5E8C7]/90 rounded-full"
+              onClick={() => {
+                setShowInputBar(false);
+                setIsListening(true);
+                setTimeout(() => {
+                  const newQuestion = "Is Verne fun to play?";
+                  const placeholderAnswer =
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et" +
+                    " velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora" +
+                    " torquent per conubia nostra, per inceptos himenaeos.";
+                  setExchanges((prev) => [
+                    ...prev,
+                    { question: newQuestion, answer: placeholderAnswer },
+                  ]);
+                  setIsListening(false);
+                }, 3000);
+              }}
+            >
               <Mic size={25} strokeWidth={2} className="text-[#322B26]" />
             </button>
           </div>
