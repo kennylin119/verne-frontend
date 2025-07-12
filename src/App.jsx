@@ -37,8 +37,8 @@ function App() {
       <main className="flex-1 flex flex-col overflow-y-auto px-6">
 
         {exchanges.length === 0 && !showInputBar && (
-          <h2 className="flex flex-1 items-center justify-center text-center mt-20 text-2xl">
-            Hi, how are you today? 
+          <h2 className="flex flex-1 items-center justify-center text-center text-2xl">
+            Hi, how are you today?
           </h2>
 
         )}
@@ -77,17 +77,23 @@ function App() {
       {/* T button viewable by default, after click, text bar opens and T button disappears */}
       {!showInputBar && (
         <>
-          <button
-            className="p-2 rounded-full bg-[#F5E8C7]/90 self-end mr-4 mb-10 text-[#322B26]"
-            onClick={() => setShowInputBar(true)}
-          >
-            <Type size={30} strokeWidth={2} />
-          </button>
+          <div className="fixed bottom-10 w-full flex justify-center items-end z-10">
 
-            <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center w-screen">
+            {/* T button  */}
+            <div className="absolute right-10">
+              <button
+                className="p-2 rounded-full bg-[#F5E8C7]/90 text-[#322B26]"
+                onClick={() => setShowInputBar(true)}
+              >
+                <Type size={30} strokeWidth={2} />
+              </button>
+            </div>
 
+
+            {/* Mic voice assistant bar */}
+            <div className="flex flex-col items-center">
               {isListening ? (
-                <div className="w-[200px] flex justify-center gap-1 mb-10 h-10 items-end">
+                <div className="w-[200px] flex justify-center gap-1 mb-10 h-10 items-end pointer-events-none">
                   {[...Array(13)].map((_, i, arr) => {
                     const center = Math.floor(arr.length / 2);
                     const distanceFromCenter = Math.abs(i - center);
@@ -116,22 +122,25 @@ function App() {
                 <div className="w-[200px] h-1.5 bg-[#F5E8C7] rounded-full mb-10" />
               )}
 
+              {/* Mic button */}
               <button
                 className="p-3 rounded-full bg-[#F5E8C7]/90 text-[#322B26] shadow-lg"
                 onClick={() => {
                   setIsListening(true);
                   setTimeout(() => {
-                  const newQuestion = "How do you play Verne?";
-                  const placeholderAnswer = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et"
-                                            + "velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora"
-                                            + "torquent per conubia nostra, per inceptos himenaeos.";
+                    const newQuestion = "How do you play Verne?";
+                    const placeholderAnswer = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et"
+                      + "velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora"
+                      + "torquent per conubia nostra, per inceptos himenaeos.";
                     setExchanges((prev) => [...prev, { question: newQuestion, answer: placeholderAnswer }]);
                     setIsListening(false);
-                  }, 3000);              }}
+                  }, 3000);
+                }}
               >
                 <Mic size={30} strokeWidth={2.5} />
               </button>
             </div>
+          </div>
         </>
       )}
 
