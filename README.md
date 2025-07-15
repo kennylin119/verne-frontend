@@ -54,3 +54,14 @@ Extra Work:
    <img src="https://github.com/kennylin119/verne-frontend/blob/main/Progress%20Pics/Week%201%20Homepage.png" width="250"> 
    <img src="https://github.com/kennylin119/verne-frontend/blob/main/Progress%20Pics/Week%201%20Sidebar.png" width="250">
 </p>
+
+### Week 3 
+- Built default homepage with welcome splash text
+- Built custom animation for voice assistant listening phase 
+
+Extra Work
+- Created defined window for text elements to prevent overlap with bottom UI elements
+- Added demo q&a functionality to test out voice assistant animation and user flow after clicking mic button 
+
+   <img src="https://github.com/kennylin119/verne-frontend/blob/dbb9ca996e73e4aa042de5217f5e9697ae0eafd1/Progress%20Pics/Week%202%20Progress%20Video.gif" width="250">
+
